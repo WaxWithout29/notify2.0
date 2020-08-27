@@ -1,3 +1,4 @@
+
 WindowManager:
     LoginPage:
     MainWindow:
@@ -20,7 +21,7 @@ WindowManager:
             center_x: (root.width/2)
             top: (root.top/2) + 230
             text: "LOGIN"
-            color: [0.0,0.0,0.0,0.5]
+            color: [1,1,1,0.8]
             font_size: 37 
         
                     
@@ -31,6 +32,7 @@ WindowManager:
             top: (root.top/2)+ 100
             size_hint: None,None
             hint_text: "username"
+            foreground_color : [1,1,1,1]
             background_color: [0.0,0.0,0.0,0.4]
             size: 250, 35
             max_lines: 1
@@ -46,6 +48,7 @@ WindowManager:
             multiline : False
             center_x: (root.width/2)
             top: (root.top/2) + 50
+            foreground_color : [1,1,1,1]
             size_hint: None, None
             hint_text: "password"
             background_color: [0.0,0.0,0.0,0.4]
@@ -90,7 +93,7 @@ WindowManager:
             center_x: (root.width/2)
             top: (root.top/2) + 250
             text: "INTRADAY"
-            color: [0.0,0.0,0.0,0.5]
+            color: [1,1,1,0.8]
             font_size: 37 
 
         TextInput:
@@ -98,6 +101,7 @@ WindowManager:
             multiline : False
             center_x: (root.width/2) 
             top: (root.top/2)+ 150
+            foreground_color : [1,1,1,1]
             size_hint: None,None
             hint_text: "Enter Balance"
             background_color: [0.0,0.0,0.0,0.4]
@@ -115,6 +119,7 @@ WindowManager:
             center_x: (root.width/2) 
             top: (root.top/2)+ 100
             size_hint: None,None
+            foreground_color : [1,1,1,1]
             hint_text: "Enter High"
             background_color: [0.0,0.0,0.0,0.4]
             size: 250, 35
@@ -133,6 +138,7 @@ WindowManager:
             top: (root.top/2) + 50
             size_hint: None, None
             hint_text: "Enter Low"
+            foreground_color : [1,1,1,1]
             background_color: [0.0,0.0,0.0,0.4]
             size: 250, 35
             max_lines: 1
@@ -150,6 +156,7 @@ WindowManager:
             hint_text: "Enter Script Ticker"
             background_color: [0.0,0.0,0.0,0.4]
             size: 250, 35
+            foreground_color : [1,1,1,1]
             max_lines: 1
             valign: 'middle'
             halign: 'center'
@@ -180,7 +187,7 @@ WindowManager:
                 elif len(low_s) == 5: target_points = low_s[0] + low_s[1] + '0'
                 quantity = int(target / float(target_points))
                 
-                root.manager.get_screen('result').final_label.text ='\nQuantity is ' + str(quantity) +  '\nBuy at ' + str(high) + '\nSell at ' + str(low)
+                root.manager.get_screen('result').final_label.text ='\nQuantity : ' + str(quantity) +  '\nBuy Trigger : ' + str(high) + '\nBuy Price : ' + str(buy_price) + '\nSell Trigger : ' + str(low) + '\nSell Price : ' + str(sell_price)
                 app.root.transition.direction = "left"
                 app.root.current = "result"
                 
@@ -197,7 +204,7 @@ WindowManager:
             on_press : 
                 app.root.transition.direction = "right"
                 app.root.current = "login"                
-                
+            
 <SecondWindow>:
     name : "result"
     final_label : final_label
@@ -216,7 +223,7 @@ WindowManager:
             center_x: (root.width/2)
             top: (root.top/2) + 200
             text: "INTRADAY RESULTS"
-            color: [0.0,0.0,0.0,1.0]
+            color: [1,1,1,0.8]
             font_size: 25
 
                 
@@ -229,13 +236,13 @@ WindowManager:
             text : "Notify my order"
             
             on_press : 
-                
                 root.run()
                 
 
         Button :
             size: 90,35
-            pos: 350, 200
+            center_x: (root.width/2)
+            top: (root.top/2) - 50
             font_size: 18
             background_color: (1,1,1,0.1)  
             text : "Back"
@@ -243,9 +250,3 @@ WindowManager:
                 app.root.current = "main"
                 app.root.transition.direction = "right"
        
-
-
-    
-  
-
-    
